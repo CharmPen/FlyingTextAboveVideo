@@ -1,0 +1,26 @@
+
+
+video {
+	background-color: black;
+}
+div#videoDiv{
+    position: relative;
+    width: 720px;
+    height: 480px;
+    top: 100px;
+    left: 190px;
+}
+canvas#textDisp {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+div#inputArea {
+    background-color:red;
+    position: relative;
+    top: 150px;
+    left: 190px;
+    width: 720px;
+    height: 25px;
+}
