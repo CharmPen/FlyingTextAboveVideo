@@ -18,10 +18,22 @@ window.onload = function() {
 
     var video = document.getElementById("demoVideo");
 //    alert(video.width);
+     
+    if (video.canPlayType("video/mp4") != "") {
+		video.src = "areyoupopular.mp4";
+	} 
+	else if (video.canPlayType("video/ogg") != "") {
+		video.src = "areyoupopular.ogv";
+	}
+	else if (video.canPlayType("video/webm") != "") {
+		video.src = "areyoupopular.webm";
+	}
+    video.load();
     video.addEventListener("pause", stopFly, false);
-    video.addEventListener("play", startFly, false); 
+    video.addEventListener("play", startFly, false);
+    video.play();
 
-    toUpdateText = setInterval(updateText, 100);
+//    toUpdateText = setInterval(updateText, 100);
 
 }
 
@@ -49,6 +61,7 @@ function updateText()
 
     deleteText();
     
+    toUpdateText =setTimeout(updateText, 100);
 }
 
 function newText(textIn, topValue) {
@@ -83,9 +96,12 @@ function addText() {
 
 function stopFly() {
 //    alert("stopping");
-        clearInterval(toUpdateText);
+//         clearInterval(toUpdateText);
+       clearTimeout(toUpdateText);
+//    alert("clearing");
 }
 
 function startFly() {
-        toUpdateText = setInterval(updateText, 100);
+//        toUpdateText = setInterval(updateText, 100);
+    toUpdateText = setTimeout(updateText, 100);
 }
